@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  index.html  =  the FRONT PAGE
+  ============================================================
+  "index.html" is a special name: when someone visits a folder
+  (e.g. yoursite.com/) the server automatically serves the file
+  called index.html. So this is your home page.
+
+  Everything the browser needs is: this HTML, the shared CSS
+  file (style.css), and links to the other .html files.
+  No server logic, no database. Just files that link together.
+-->
+<html lang="en">
+<head>
+  <!-- <head> = info ABOUT the page. None of this shows on screen. -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Corner Café — Home</title>   <!-- shows in the browser tab -->
+
+  <!-- Link to the shared stylesheet. All pages use this same file,
+       so you style everything in one place. -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- <body> = everything you actually SEE on the page. -->
+
+  <!--
+    ========== NAV BAR ==========
+    This same block is copied onto every page, so the menu is
+    consistent everywhere. Each <a> is a hyperlink to another file.
+    href="about.html" means "load the file about.html".
+    The class="active" just lets us highlight the current page in CSS.
+  -->
+  <header>
+    <div class="logo">Corner&nbsp;Café</div>
+    <nav>
+      <a href="index.html" class="active">Home</a>
+      <a href="services.html">Menu</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!--
+    ========== HERO ==========
+    The big top section. The button is just a hyperlink styled to
+    look like a button — clicking it jumps to the "#hours" section
+    LOWER ON THIS SAME PAGE (see the id="hours" further down).
+    That "#name" trick is how you link to a spot on the same page.
+  -->
+  <section class="hero">
+    <h1>Good coffee, honest prices, friendly faces.</h1>
+    <p>A little café on the corner. Come in, sit down, stay a while.</p>
+    <a href="contact.html" class="button button-ghost">Find us &amp; say hello</a>
+    <a href="#hours" class="button button-ghost">See our hours</a>
+  </section>
+
+  <!--
+    ========== FEATURE CARDS ==========
+    Three boxes linking off to other pages. Notice each card's
+    "Read more" is a normal hyperlink to another .html file.
+  -->
+  <section class="cards">
+    <article class="card">
+      <h2>Our menu</h2>
+      <p>Espresso, pour-overs, pastries baked this morning.</p>
+      <a href="services.html">See the menu →</a>
+    </article>
+
+    <article class="card">
+      <h2>Who we are</h2>
+      <p>Two people, one espresso machine, since 2019.</p>
+      <a href="about.html">About us →</a>
+    </article>
+
+    <article class="card">
+      <h2>Come by</h2>
+      <p>Find our address, hours, and how to reach us.</p>
+      <a href="contact.html">Contact →</a>
+    </article>
+  </section>
+
+  <!--
+    ========== HOURS ==========
+    This section has id="hours". That's what the "#hours" link in
+    the hero jumps to. Try clicking "See our hours" up top — the
+    page scrolls straight here. IDs must be unique on a page.
+  -->
+  <section id="hours" class="hours">
+    <h2>Opening hours</h2>
+    <table>
+      <tr><td>Monday – Friday</td><td>7:00 – 18:00</td></tr>
+      <tr><td>Saturday</td><td>8:00 – 16:00</td></tr>
+      <tr><td>Sunday</td><td>Closed</td></tr>
+    </table>
+  </section>
+
+  <!--
+    ========== FOOTER ==========
+    Also copied onto every page.
+  -->
+  <footer>
+    <p>Corner Café · Somewhere Nice · <a href="contact.html">Get in touch</a></p>
+  </footer>
+
+</body>
+</html>

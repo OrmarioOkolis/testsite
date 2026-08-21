@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!--
+  contact.html  =  the CONTACT page
+  This is the page the "Contact" link everywhere points to.
+  It shows two things worth learning:
+   1) tel: and mailto: links (clickable phone / email)
+   2) a basic <form> — but read the note near the form!
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Corner Café — Contact</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">Corner&nbsp;Café</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="services.html">Menu</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+  </header>
+
+  <section class="page">
+    <h1>Contact</h1>
+    <p class="lead">Come in, call, or send a message.</p>
+
+    <!--
+      tel: and mailto: use the same <a> tag as page links, but the
+      href starts with tel: or mailto: instead of a filename.
+      On a phone, the tel: link opens the dialer with the number ready.
+      The mailto: link opens the visitor's email app.
+    -->
+    <p>
+      📍 <strong>Address:</strong> 1 Corner Street, Somewhere Nice<br>
+      📞 <strong>Phone:</strong> <a href="tel:+385911234567">+385 91 123 4567</a><br>
+      ✉️ <strong>Email:</strong> <a href="mailto:hello@cornercafe.example">hello@cornercafe.example</a>
+    </p>
+
+    <h2>Send a message</h2>
+
+    <!--
+      ⚠️ IMPORTANT — read this:
+      A form's LOOK is pure HTML (below). But making it actually
+      DELIVER a message needs a backend to receive it. A plain
+      static site has no backend, so on its own this form won't
+      send anything — pressing the button does nothing useful yet.
+
+      To make it work on a static site, you point the form at a
+      free form-handling service. Example with Web3Forms:
+        1. sign up, get an "access key"
+        2. set  action="https://api.web3forms.com/submit"  method="POST"
+        3. add  <input type="hidden" name="access_key" value="YOUR-KEY">
+      Then submissions get emailed to you. Formspree works the same way.
+
+      For now this is just here so you can see how form fields are built.
+    -->
+    <form>
+      <label>Your name
+        <input type="text" name="name" placeholder="Ada Lovelace">
+      </label>
+
+      <label>Your email
+        <input type="email" name="email" placeholder="you@example.com">
+      </label>
+
+      <label>Message
+        <textarea name="message" rows="4" placeholder="Say hi..."></textarea>
+      </label>
+
+      <button type="submit" class="button">Send</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>Corner Café · Somewhere Nice · <a href="index.html">Back to home</a></p>
+  </footer>
+
+</body>
+</html>

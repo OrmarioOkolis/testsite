@@ -1,0 +1,162 @@
+/*
+  ============================================================
+  style.css  =  the SHARED STYLESHEET  (TEAL THEME)
+  ============================================================
+  The whole page background is now teal. Because of that, text
+  sitting directly on the teal has to be LIGHT to stay readable,
+  while text inside the white panels (header, cards, footer) stays
+  DARK. That's why there are two sets of text colours below.
+
+  Change any colour in :root and it updates everywhere at once.
+*/
+
+:root {
+  /* -- the teal background + accent -- */
+  --teal:      #3d8a91;   /* the page background (deep teal) */
+  --teal-soft: #0e7c86;   /* brighter teal: accents on white panels */
+
+  /* -- text/links that sit ON the teal -- */
+  --on-teal:        #ffffff;         /* light text on teal */
+  --on-teal-muted:  #ffffff;         /* softer light text on teal */
+  --on-teal-link:   #ffffff;         /* links on teal (pale aqua) */
+  --line-teal:      rgba(255,255,255,.22);  /* faint borders on teal */
+
+  /* -- text/borders INSIDE white panels (header, cards, footer) -- */
+  --panel: #ffffff;       /* white panel background */
+  --ink:   #12333a;       /* dark text on white */
+  --muted: #5f767b;       /* softer dark text on white */
+  --line:  #e3ded4;       /* borders inside white panels */
+}
+
+/* ---- Base ---- */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  color: var(--on-teal);      /* DEFAULT text is light, for teal areas */
+  background: var(--teal);    /* teal, edge to edge */
+  line-height: 1.6;
+}
+
+h1 { font-size: 2rem; margin: 0 0 .4em; }
+h2 { font-size: 1.3rem; margin: 1.6em 0 .5em; }
+
+/* Default link colour = teal (correct for links inside white panels).
+   Links on the teal background get overridden further down. */
+a { color: var(--teal-soft); }
+
+/* ---- Header / nav (a WHITE panel) ---- */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: .5rem 1rem;
+  padding: 1rem 1.5rem;
+  background: var(--panel);
+  border-bottom: 1px solid var(--line);
+}
+.logo { font-weight: 700; font-size: 1.15rem; color: var(--ink); }
+
+nav a {
+  text-decoration: none;
+  margin-left: 1.1rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+nav a:hover { color: var(--teal-soft); }
+nav a.active { color: var(--ink); border-bottom: 2px solid var(--teal-soft); }
+
+/* ---- Hero (sits directly ON teal → light text) ---- */
+.hero {
+  padding: 4rem 1.5rem;
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.hero h1 { font-size: 2.4rem; }
+.hero p  { color: var(--on-teal-muted); font-size: 1.15rem; }
+.hero a  { color: var(--on-teal-link); }   /* if any link appears here */
+
+/* ---- Buttons: WHITE with a subtle border, teal text ---- */
+.button {
+  display: inline-block;
+  margin: 1rem .3rem 0;
+  padding: .7rem 1.3rem;
+  background: #ffffff;                     /* white */
+  color: var(--teal);                      /* teal text */
+  text-decoration: none;
+  border-radius: 6px;
+  border: 1px solid rgba(18,51,58,.12);    /* subtle edge */
+  font: inherit;
+  cursor: pointer;
+}
+.button:hover { background: #f2fbfb; }
+
+/* Secondary button: outline style that works on teal
+   (transparent, light border + light text). */
+.button-ghost {
+  background: transparent;
+  color: var(--on-teal);
+  border: 1px solid rgba(255,255,255,.5);
+}
+.button-ghost:hover { background: rgba(255,255,255,.12); }
+
+/* ---- Cards (WHITE panels floating on the teal) ---- */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem 3rem;
+}
+.card {
+  background: var(--panel);
+  color: var(--ink);            /* dark text inside the white card */
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 1.2rem;
+}
+.card h2 { margin-top: 0; }
+.card a  { text-decoration: none; font-weight: 600; color: var(--teal-soft); }
+
+/* ---- Hours + generic inner pages (ON teal → light text) ---- */
+.hours, .page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 3rem;
+}
+.lead { color: var(--on-teal-muted); font-size: 1.1rem; }
+.page a, .hours a { color: var(--on-teal-link); }   /* light links on teal */
+
+/* Tables sit on teal now → light borders + light text */
+table { border-collapse: collapse; width: 100%; max-width: 420px; }
+td { padding: .5rem .75rem; border-bottom: 1px solid var(--line-teal); }
+.menu td:last-child { text-align: right; color: var(--on-teal-muted); }
+
+/* ---- Form ---- */
+form { max-width: 420px; }
+label { display: block; margin: 1rem 0 .3rem; font-weight: 600; color: var(--on-teal); }
+input, textarea {
+  width: 100%;
+  padding: .6rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font: inherit;
+  margin-top: .3rem;
+  background: #ffffff;    /* white field so typed text is readable */
+  color: var(--ink);
+}
+
+/* ---- Footer (a WHITE panel) ---- */
+footer {
+  border-top: 1px solid var(--line);
+  padding: 1.5rem;
+  text-align: center;
+  background: var(--panel);
+  color: var(--muted);
+  font-size: .9rem;
+}
+footer a { color: var(--teal-soft); }
